@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>#1</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <p>สุ่มตัวเลข</p>
+        <form action="/" method="POST">
+            <label>ต้องการตัวเลขกี่หลัก</label>
+            <input type="text" name="pw"><br>
+            <button type="submit" value="submit">สุ่มตัวเลข</button>
+        </form>
+        {% if cal %}
+            <p>{{cal}}</p>
+        {% endif %}
+    </body>
+</html>
