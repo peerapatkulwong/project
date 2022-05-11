@@ -3,13 +3,13 @@ import random
 app = Flask(__name__, template_folder = 'template')
 
 @app.route("/",methods=['POST','GET'])
-def ran():
+def index():
     number = "0123456789"
-    password = ""
+    num = ""
     if request.method == 'POST':
         length = int(request.form.get('pw'))
-        password = "".join(random.sample(number,length))
-    return render_template("index.html",cal = password)
+        num = "".join(random.sample(number,length))
+    return render_template("index.html",cal = num)
 
 if __name__ == "__main__":
     app.run(debug=True)
