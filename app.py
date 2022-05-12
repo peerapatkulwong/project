@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import random
 app = Flask(__name__, template_folder = 'template')
 
-@app.route("/",methods=['POST','GET'])
+@app.route("/num",methods=['POST','GET'])
 def index():
     number = "0123456789"
     num = ""
