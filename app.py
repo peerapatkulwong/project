@@ -1,15 +1,28 @@
 from flask import Flask, render_template, request
-import random
+from turtle import *
+import turtle
 app = Flask(__name__, template_folder = 'template')
 
-@app.route("/num",methods=['POST','GET'])
+@app.route("/",methods=['POST','GET'])
 def index():
-    number = "0123456789"
-    num = ""
     if request.method == 'POST':
-        length = int(request.form.get('pw'))
-        num = "".join(random.sample(number,length))
-    return render_template("index.html",cal = num)
+        length = str(request.form.get('pw'))
+        if length == "triangle":
+            geo = turtle.Turtle()
+            geo.forward(100)
+            geo.left(120)
+            geo.forward(100)
+            geo.left(120)
+            geo.forward(100)
+            turtle.done()
+            return render_template("index.html")
+        elif length == "circle":
+            geo = turtle.Turtle()
+            geo.circle(100)
+            turtle.done()
+            return render_template("index.html")
+    else:
+        return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
