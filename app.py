@@ -6,8 +6,8 @@ app = Flask(__name__, template_folder = 'template')
 @app.route("/",methods=['POST','GET'])
 def index():
     if request.method == 'POST':
-        length = str(request.form.get('pw'))
-        if length == "triangle":
+        length = int(request.form.get('pw'))
+        if length >= 100:
             geo = turtle.Turtle()
             geo.forward(100)
             geo.left(120)
@@ -16,11 +16,8 @@ def index():
             geo.forward(100)
             turtle.done()
             return render_template("index.html")
-        elif length == "circle":
-            geo = turtle.Turtle()
-            geo.circle(100)
-            turtle.done()
-            return render_template("index.html")
+        elif length <= 100:
+            return '<p>error</p>'
     else:
         return render_template("index.html")
 
